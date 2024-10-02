@@ -14,6 +14,24 @@ const authChildRoutes = (prefix) => [
   },
 ];
 
+const diaryChildRoutes = (prefix) => [
+  {
+    path: "my-diaries",
+    name: prefix + ".diaries",
+    component: () => import("../pages/diary/DiariesListPage.vue"),
+  },
+  {
+    path: "details",
+    name: prefix + ".details",
+    component: () => import("../pages/diary/DiaryDetailsPage.vue"),
+  },
+  {
+    path: "new",
+    name: prefix + ".new",
+    component: () => import("../pages/diary/WriteDiaryPage.vue"),
+  },
+];
+
 const routes = [
   {
     path: "",
@@ -35,10 +53,11 @@ const routes = [
     component: () => import("../pages/user/UserProfilePage.vue"),
   },
   {
-    path: "/my-diaries",
-    name: "diaries",
+    path: "/diary",
+    name: "diary-index",
     meta: { requiredAuth: false },
-    component: () => import("../pages/diary/DiariesListPage.vue"),
+    component: () => import("../pages/diary/DiaryOverviewPage.vue"),
+    children: diaryChildRoutes("diary"),
   },
 ];
 

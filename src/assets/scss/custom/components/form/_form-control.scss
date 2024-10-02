@@ -7,6 +7,23 @@ form {
   display: flex;
 }
 
+.form-field .form-control.auto-resize-textarea {
+  width: 100%;
+  height: 60px;
+  padding: 1rem;
+  outline: none;
+  resize: none;
+  font-size: 1em;
+  border-radius: 5px;
+  color: $khaki;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+}
+
+.form-field .form-control.auto-resize-textarea::-webkit-scrollbar {
+  width: 0px;
+} 
+
 .form-field {
   font-family: $font-family-primary-extra-light;
   .form-control {

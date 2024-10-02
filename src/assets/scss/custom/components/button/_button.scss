@@ -1,11 +1,11 @@
 .btn {
-  min-width: 10rem;
+  min-width: 8rem;
   background: transparent;
   color: $light-tint-2;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border-radius: 50px;
-  padding: $space-size-xs 0.8rem;
+  padding: $space-size-xxs 0.8rem;
   font-size: $font-size-xs;
   font-family: $font-family-primary-medium;
   transition: background-color 0.2s, border-color 0.2s,
@@ -21,6 +21,7 @@
 
   &:hover {
     background-color: $almond;
+    color: $boy-red;
   }
 
   &.btn-with-icon {

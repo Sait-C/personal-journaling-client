@@ -1,6 +1,6 @@
 import CustomSelectInputComponent from '@/components/custom/form/CustomSelectInputComponent.vue';
 import CustomTextInputComponent from '@/components/custom/form/CustomTextInputComponent.vue';
-import { RiArrowDownSLine, RiArrowDropLeftLine, RiArrowDropRightLine, RiArrowRightLine, RiArrowUpLine, RiBardFill, RiCircleFill, RiCloseLargeFill, RiInstagramFill, RiMapPinUserLine, RiTwitterFill, RiUserHeartFill, RiYoutubeFill } from '@remixicon/vue'
+import { RiArrowDownSLine, RiArrowDropLeftLine, RiArrowDropRightLine, RiArrowRightLine, RiArrowUpLine, RiBardFill, RiCircleFill, RiCloseLargeFill, RiFileAddLine, RiInstagramFill, RiMapPinUserLine, RiTwitterFill, RiUserHeartFill, RiYoutubeFill } from '@remixicon/vue'
 
 const remixIcons = [
   { name: 'ri-arrow-down-s', component: RiArrowDownSLine },
@@ -15,7 +15,8 @@ const remixIcons = [
   { name: 'ri-user-heart-fill', component: RiUserHeartFill },
   { name: 'ri-close-large', component: RiCloseLargeFill },
   { name: 'ri-map-pin-user', component: RiMapPinUserLine },
-  { name: 'ri-arrow-up', component: RiArrowUpLine }
+  { name: 'ri-arrow-up', component: RiArrowUpLine },
+  { name: 'ri-file-add', component: RiFileAddLine }
 ]
 
 const customFormControls = [

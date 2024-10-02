@@ -36,9 +36,10 @@
     flex-direction: column;
   }
 
-  #list-of-diaries #header {
+  #list-of-diaries #list-header {
     p {
-      opacity: 0.5;
+      font-family: $font-family-primary-medium;
+      color: $almond;
     }
   }
 

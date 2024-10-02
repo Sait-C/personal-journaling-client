@@ -1,0 +1,35 @@
+#write-diary-page {
+  #page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-family: $font-family-primary-extra-light;
+    color: $dark-slate-gray;
+    padding-bottom: $space-size-l;
+
+    .title {
+      font-size: 5rem;
+    }
+
+    .bottom-text {
+      font-family: $font-family-primary-regular;
+    }
+  }
+
+  #creating-section {
+    margin-bottom: $space-size-xl;
+  }
+
+  #top-fields {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  #add-button {
+    width: min-content;
+  }
+}
