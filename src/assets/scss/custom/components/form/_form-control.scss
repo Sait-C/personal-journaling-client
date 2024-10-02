@@ -1,0 +1,38 @@
+form {
+  width: 100%;
+  grid-row-gap: 0.5em;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  display: flex;
+}
+
+.form-field {
+  font-family: $font-family-primary-extra-light;
+  .form-control {
+    z-index: 5;
+    width: 100%;
+    min-height: $space-size-l;
+    border: 1px solid $light-tint-1;
+    color: $light-tint-2;
+    background-color: transparent;
+    border-radius: $form-control-border-radius-primary;
+    margin-bottom: 0;
+    padding: $form-control-padding-block $form-control-padding-inline;
+    font-size: $font-size-s;
+    line-height: 1.1rem;
+    transition: background-color 0.2s, border-color 0.5s;
+    position: relative;
+    outline: none;
+    font-family: $font-family-primary-extra-light;
+
+    &:not(.hover-disable):hover {
+      background-color: $almond;
+      border-color: $almond;
+    }
+  }
+
+  &.expanded {
+    width: 100%;
+  }
+}
