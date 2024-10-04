@@ -2,7 +2,29 @@
   <router-view />
 </template>
 
-<script setup></script>
+<script setup>
+import {
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { initWallet } from "solana-wallets-vue";
+import { initWorkspace } from "@/composables/useWorkspace";
+
+const walletOptions = {
+  // wallet providers we want to support
+  wallets: [
+    new PhantomWalletAdapter({ network: WalletAdapterNetwork.Devnet }),
+    new SolflareWalletAdapter(),
+  ],
+  autoConnect: true,
+};
+// initialise the global store using the wallets defined
+initWallet(walletOptions);
+initWorkspace();
+
+// we set the autoConnect option to true so that it will automatically try to reconnect the user's wallet on page refresh.
+</script>
 
 <style lang="scss">
 @import "./assets/custom-vue/scss/styles";
