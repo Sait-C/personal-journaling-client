@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:devnet": "vue-cli-service serve --mode devnet",
+    "serve:mainnet": "vue-cli-service serve --mode mainnet",
     "build": "vue-cli-service build",
+    "build:devnet": "vue-cli-service build --mode devnet",
+    "build:mainnet": "vue-cli-service build --mode mainnet",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -17,6 +21,7 @@
     "bootstrap-vue-3": "^0.5.1",
     "browserify-zlib": "^0.2.0",
     "core-js": "^3.8.3",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "node-polyfill-webpack-plugin": "^4.0.0",
@@ -24,6 +29,7 @@
     "sass": "^1.79.4",
     "sass-loader": "^16.0.2",
     "solana-wallets-vue": "^0.6.1",
+    "uuid": "^10.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.4.5",
     "vue-toastification": "^2.0.0-rc.5",

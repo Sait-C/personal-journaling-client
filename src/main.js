@@ -8,6 +8,13 @@ import 'solana-wallets-vue/styles.css'
 
 import "./registerServiceWorker";
 
+// Day.js
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(localizedFormat)
+dayjs.extend(relativeTime)
+
 // Library Components
 import BootstrapVue3 from "bootstrap-vue-3";
 import Toast from "vue-toastification";
