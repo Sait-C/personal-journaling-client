@@ -1,4 +1,6 @@
 <template>
+  <OutContentLoaderComponent :active="isLoading"/>
+
   <div id="write-diary-page">
     <div id="page-header" class="container">
       <h1 class="title">Write your new diary</h1>
@@ -72,6 +74,7 @@
 </template>
 
 <script setup>
+import OutContentLoaderComponent from "@/components/custom/loader/OutContentLoaderComponent.vue";
 import CustomTextInputComponent from "@/components/custom/form/CustomTextInputComponent.vue";
 import CustomAutoResizeTextareaComponent from "@/components/custom/form/CustomAutoResizeTextareaComponent.vue";
 
