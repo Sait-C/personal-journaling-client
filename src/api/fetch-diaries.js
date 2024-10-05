@@ -7,6 +7,7 @@ export const fetchDiaries = async (authorityKey, otherFilters = []) => {
     authorFilter(authorityKey),
     ...otherFilters,
   ]);
+  console.log(diaries);
   return diaries.map((diary) => new Diary(diary.publicKey, diary.account));
 };
 

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "../store";
+import { useWorkspace } from "@/composables/useWorkspace";
 
 const authChildRoutes = (prefix) => [
   {
@@ -55,7 +55,7 @@ const routes = [
   {
     path: "/diary",
     name: "diary-index",
-    meta: { requiredAuth: false },
+    meta: { requiredAuth: true },
     component: () => import("../pages/diary/DiaryOverviewPage.vue"),
     children: diaryChildRoutes("diary"),
   },
@@ -72,31 +72,24 @@ router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.meta.requiredAuth;
 
   if (requiresAuth) {
-    const authenticated = await isAuthenticated();
+    const authenticated = isAuthenticated();
     if (!authenticated.status) {
       console.log("Authentication required!");
       // route to the login page
-      return next({ path: "/auth/sign-in" });
+      return next({ path: "" });
       // toastify authentication required
-    } else {
-      // route to the forbidden page or route to home and throw a toast message
-      console.log("Forbidden route for this user");
-      return next({ path: "/" });
-    }
+    } 
   }
-
-  // Reset setting
-  await store.dispatch("setting/setIsSiteMenuActive", false);
 
   return next();
 });
 
-const isAuthenticated = async () => {
-  let user = store.getters["auth/getUser"];
-  if (!user) {
+const isAuthenticated = () => {
+  const { wallet } = useWorkspace();
+  if (!wallet.value) {
     return { status: false };
   }
-  return { status: true, user };
+  return { status: true };
 };
 
 export default router;

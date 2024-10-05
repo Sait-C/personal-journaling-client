@@ -22,7 +22,7 @@ form {
 
 .form-field .form-control.auto-resize-textarea::-webkit-scrollbar {
   width: 0px;
-} 
+}
 
 .form-field {
   font-family: $font-family-primary-extra-light;
@@ -30,7 +30,7 @@ form {
     z-index: 5;
     width: 100%;
     min-height: $space-size-l;
-    border: 1px solid $light-tint-1;
+    border: 1px solid $almond;
     color: $light-tint-2;
     background-color: transparent;
     border-radius: $form-control-border-radius-primary;
@@ -51,5 +51,72 @@ form {
 
   &.expanded {
     width: 100%;
+  }
+}
+
+.file-input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+  justify-content: center;
+}
+
+.file-input .uploaded-image {
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    color: $blond;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+
+  .close-icon:hover {
+    opacity: 1;
+  }
+}
+
+.file-input label {
+  padding: $space-size-xs 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 200px;
+  font-family: $font-family-primary-regular;
+  color: $blond;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+  transition: background-color 0.2s, border-color 0.2s,
+    letter-spacing 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    background-color: $almond;
+    color: $boy-red;
+  }
+
+  &.active {
+    background-color: $almond;
+    color: $blond;
+  }
+
+  span {
+    font-weight: normal;
   }
 }

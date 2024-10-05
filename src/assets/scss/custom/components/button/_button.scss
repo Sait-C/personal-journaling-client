@@ -1,11 +1,11 @@
 .btn {
   min-width: 8rem;
   background: transparent;
-  color: $light-tint-2;
+  color: $blond;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border-radius: 50px;
-  padding: $space-size-xxs 0.8rem;
+  padding: $space-size-xs 0.8rem;
   font-size: $font-size-xs;
   font-family: $font-family-primary-medium;
   transition: background-color 0.2s, border-color 0.2s,
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid $light-tint-1;
+  border: 1px solid $almond;
   cursor: pointer;
   text-decoration: none;
 

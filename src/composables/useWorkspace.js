@@ -1,13 +1,13 @@
 import { computed } from "vue";
 import { useAnchorWallet } from "solana-wallets-vue";
 import { Connection, PublicKey } from "@solana/web3.js";
-import { Provider, Program } from "@project-serum/anchor";
+import { AnchorProvider, Program } from "@project-serum/anchor";
 import idl from "../../target/idl/personal_journaling.json";
 
-const clusterUrl = process.env.VUE_APP_CLUSTER_URL
+const clusterUrl = process.env.VUE_APP_CLUSTER_URL;
 const preflightCommitment = "processed";
 const commitment = "processed";
-const programID = new PublicKey(idl.metadata.address);
+const programID = new PublicKey('GQdZb18RvtuSqoSJ9tE4GRBwjWRMXoMCRumCNc4ZFLC1');
 let workspace = null;
 
 export const useWorkspace = () => workspace;
@@ -17,7 +17,7 @@ export const initWorkspace = () => {
   const connection = new Connection(clusterUrl, commitment);
   const provider = computed(
     () =>
-      new Provider(connection, wallet.value, {
+      new AnchorProvider(connection, wallet.value, {
         preflightCommitment,
         commitment,
       })

@@ -10,68 +10,40 @@
       <div class="year"><p>Year</p></div>
     </div>
     <div
+      v-for="diary in diaries"
+      :key="diary.id"
       class="diary"
       @mousemove="onMouseMoveDiary"
       @mouseleave="onMouseLeaveDiary"
     >
-      <div class="title"><p>My first day in university</p></div>
-      <div class="month"><p>01</p></div>
+      <div class="title">
+        <p>{{ diary.title }}</p>
+      </div>
+      <div class="month">
+        <p>{{ diary.created_at }}</p>
+      </div>
       <div class="day"><p>10</p></div>
       <div class="year"><p>2024</p></div>
       <div class="hover-reveal-image">
-        <img
-          src="../../../assets/images/default_image.png"
-          alt="My first day in university"
-        />
-      </div>
-    </div>
-    <div
-      class="diary"
-      @mousemove="onMouseMoveDiary"
-      @mouseleave="onMouseLeaveDiary"
-    >
-      <div class="title"><p>New gift</p></div>
-      <div class="month"><p>07</p></div>
-      <div class="day"><p>15</p></div>
-      <div class="year"><p>2024</p></div>
-      <div class="hover-reveal-image">
-        <img src="../../../assets/images/default_image.png" alt="New gift" />
-      </div>
-    </div>
-    <div
-      class="diary"
-      @mousemove="onMouseMoveDiary"
-      @mouseleave="onMouseLeaveDiary"
-    >
-      <div class="title"><p>I am learning new things</p></div>
-      <div class="month"><p>02</p></div>
-      <div class="day"><p>07</p></div>
-      <div class="year"><p>2023</p></div>
-      <div class="hover-reveal-image">
-        <img
-          src="../../../assets/images/default_image.png"
-          alt="I am learning new things"
-        />
-      </div>
-    </div>
-    <div
-      class="diary"
-      @mousemove="onMouseMoveDiary"
-      @mouseleave="onMouseLeaveDiary"
-    >
-      <div class="title"><p>My brother</p></div>
-      <div class="month"><p>03</p></div>
-      <div class="day"><p>01</p></div>
-      <div class="year"><p>2021</p></div>
-      <div class="hover-reveal-image">
-        <img src="../../../assets/images/default_image.png" alt="My brother" />
+        <img :src="diary.image" :alt="diary.title" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { onMounted, computed } from "vue";
 import { gsap } from "gsap";
+import { useWorkspace } from "@/composables/useWorkspace";
+import { useStore } from "vuex";
+
+const store = useStore();
+const { wallet } = useWorkspace();
+const diaries = computed(() => store.getters["diary/getDiaries"]);
+
+onMounted(async () => {
+  await store.dispatch("diary/fetchDiaries", wallet.value.publicKey.toBase58());
+});
 
 function onMouseMoveDiary(el) {
   const image = el.target.querySelector(".hover-reveal-image");

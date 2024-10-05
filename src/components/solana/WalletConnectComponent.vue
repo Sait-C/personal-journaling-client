@@ -3,14 +3,20 @@
 </template>
 
 <script setup>
-import { useWallet } from "solana-wallets-vue";
+import { useWorkspace } from "@/composables/useWorkspace";
 import { WalletMultiButton } from "solana-wallets-vue";
-import { computed, watch } from "vue";
+import { watch } from "vue";
 import { useRouter } from "vue-router";
+import { utf8 } from "@project-serum/anchor/dist/cjs/utils/bytes";
+import { findProgramAddressSync } from "@project-serum/anchor/dist/cjs/utils/pubkey";
+import { useStore } from "vuex";
+import { initializeUser } from "@/api/initialize-user";
 
+const store = useStore();
 const router = useRouter();
+const { program, wallet } = useWorkspace();
 
-const wallet = computed(() => {
+/* const wallet = computed(() => {
   const { publicKey } = useWallet();
 
   if (publicKey && publicKey.value) {
@@ -20,14 +26,38 @@ const wallet = computed(() => {
 
   console.log("Wallet not connected?? ", publicKey);
   return null;
-});
+}); */
 
 watch(wallet, async (currentValue) => {
-  if (currentValue) {
+  if (currentValue && program.value) {
     // Wallet connected logic
+    let profileAccount = null;
     // Init User if it has not initialized yet
-    router.push({ name: "diary.diaries" });
+    try {
+      const [profilePda] = await findProgramAddressSync(
+        [utf8.encode("USER_STATE"), wallet.value.publicKey.toBuffer()],
+        program.value.programId
+      );
+      console.log(profilePda);
+      profileAccount = await program.value.account.userProfile.fetch(
+        profilePda
+      );
+      console.log(profileAccount);
+    } catch (error) {
+      console.error(error);
+    }
+
+    if (profileAccount) {
+      await store.dispatch("userProfile/setUserProfile", profileAccount);
+    } else {
+      console.log("User have not initialized yet!");
+      await initializeUser();
+    }
+
+    /* router.push({ name: "diary.diaries" }); */
   } else {
+    await store.dispatch("userProfile/setUserProfile", null);
+    await store.dispatch("diary/clearDiaries");
     router.push({ name: "home" });
   }
 });
