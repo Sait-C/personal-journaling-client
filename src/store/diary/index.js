@@ -6,12 +6,16 @@ export default {
   state() {
     return {
       diaries: [],
+      currentDiary: null,
     };
   },
 
   mutations: {
     setDiaries(state, payload) {
       state.diaries = payload;
+    },
+    setCurrentDiary(state, payload) {
+      state.currentDiary = payload;
     },
   },
 
@@ -24,6 +28,9 @@ export default {
         commit("setDiaries", fetchedDiaries);
       });
     },
+    setCurrentDiary({ commit }, payload) {
+      commit("setCurrentDiary", payload);
+    },
     clearDiaries({ commit }) {
       commit("setDiaries", []);
     },
@@ -32,6 +39,9 @@ export default {
   getters: {
     getDiaries(state) {
       return state.diaries;
+    },
+    getCurrentDiary(state) {
+      return state.currentDiary;
     },
   },
 };

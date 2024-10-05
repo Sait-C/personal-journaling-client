@@ -15,15 +15,20 @@
       class="diary"
       @mousemove="onMouseMoveDiary"
       @mouseleave="onMouseLeaveDiary"
+      @click="onDiaryClick(diary)"
     >
       <div class="title">
         <p>{{ diary.title }}</p>
       </div>
       <div class="month">
-        <p>{{ diary.created_at }}</p>
+        <p>{{ diary.month }}</p>
       </div>
-      <div class="day"><p>10</p></div>
-      <div class="year"><p>2024</p></div>
+      <div class="day">
+        <p>{{ diary.day }}</p>
+      </div>
+      <div class="year">
+        <p>{{ diary.year }}</p>
+      </div>
       <div class="hover-reveal-image">
         <img :src="diary.image" :alt="diary.title" />
       </div>
@@ -36,10 +41,18 @@ import { onMounted, computed } from "vue";
 import { gsap } from "gsap";
 import { useWorkspace } from "@/composables/useWorkspace";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const store = useStore();
 const { wallet } = useWorkspace();
 const diaries = computed(() => store.getters["diary/getDiaries"]);
+
+const onDiaryClick = async (diary) => {
+  await store.dispatch("diary/setCurrentDiary", diary);
+  console.log(diary);
+  router.push({ name: "diary.details" });
+};
 
 onMounted(async () => {
   await store.dispatch("diary/fetchDiaries", wallet.value.publicKey.toBase58());

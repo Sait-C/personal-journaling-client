@@ -16,6 +16,18 @@ export class Diary {
   }
 
   get created_at() {
-    return dayjs.unix(this.timestamp).format("lll");
+    return dayjs.unix(this.timestamp).format("YYYY-MM-DD");
+  }
+
+  get month() {
+    return dayjs.unix(this.timestamp).format('MMMM');
+  }
+
+  get year() {
+    return dayjs.unix(this.timestamp).year();
+  }
+
+  get day() {
+    return dayjs.unix(this.timestamp).date();
   }
 }

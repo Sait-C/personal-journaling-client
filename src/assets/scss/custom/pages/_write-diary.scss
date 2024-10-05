@@ -41,3 +41,15 @@
     width: min-content;
   }
 }
+
+@include media-breakpoint-down(md) {
+  #write-diary-page {
+    #top-fields {
+      align-items: end;
+      #form-fields {
+        flex-direction: column-reverse;
+        align-items: start;
+      }
+    }
+  }
+}

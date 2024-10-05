@@ -11,7 +11,9 @@ import { utf8 } from "@project-serum/anchor/dist/cjs/utils/bytes";
 import { findProgramAddressSync } from "@project-serum/anchor/dist/cjs/utils/pubkey";
 import { useStore } from "vuex";
 import { initializeUser } from "@/api/initialize-user";
+import { useToast } from "vue-toastification";
 
+const toast = useToast();
 const store = useStore();
 const router = useRouter();
 const { program, wallet } = useWorkspace();
@@ -51,7 +53,12 @@ watch(wallet, async (currentValue) => {
       await store.dispatch("userProfile/setUserProfile", profileAccount);
     } else {
       console.log("User have not initialized yet!");
-      await initializeUser();
+      const result = await initializeUser();
+      if (result.success) {
+        toast.success("Welcome, this diary is a gift from us to you");
+      } else {
+        toast.error(result.error.message);
+      }
     }
 
     /* router.push({ name: "diary.diaries" }); */

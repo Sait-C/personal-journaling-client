@@ -148,11 +148,20 @@ const createNewDiary = async () => {
     file: uploadedImages.value[0]?.file || null,
   };
 
-  const diary = await sendDiary(payload.content, payload.title, payload.file);
-  if (diary) {
+  const response = await sendDiary(
+    payload.content,
+    payload.title,
+    payload.file
+  );
+  if (response.success) {
     toast.success(`'${payload.title}' is successfully saved`);
-  } else {
-    toast.error("Something went wrong!");
+  } else if (response.error) {
+    console.error(response.error);
+    if (response.error.message) {
+      toast.error(response.error.message);
+    } else {
+      toast.error("You have already wrote a diary for today!");
+    }
   }
 };
 </script>
