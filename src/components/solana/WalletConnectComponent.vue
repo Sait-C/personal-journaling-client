@@ -51,6 +51,11 @@ watch(wallet, async (currentValue) => {
 
     if (profileAccount) {
       await store.dispatch("userProfile/setUserProfile", profileAccount);
+      await store.dispatch(
+        "diary/fetchDiaries",
+        wallet.value.publicKey.toBase58()
+      );
+      router.push({ name: "diary.diaries" });
     } else {
       console.log("User have not initialized yet!");
       const result = await initializeUser();

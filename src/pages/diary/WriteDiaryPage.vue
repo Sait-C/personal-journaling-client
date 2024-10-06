@@ -1,5 +1,5 @@
 <template>
-  <OutContentLoaderComponent :active="isLoading"/>
+  <OutContentLoaderComponent :active="isLoading" />
 
   <div id="write-diary-page">
     <div id="page-header" class="container">
@@ -84,8 +84,14 @@ import { useAsyncState } from "@vueuse/core";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { sendDiary } from "@/api/send-diary";
+import { useRouter } from "vue-router";
+import { useWorkspace } from "@/composables/useWorkspace";
+import { useStore } from "vuex";
 
+const store = useStore();
+const router = useRouter();
 const toast = useToast();
+const { wallet } = useWorkspace();
 
 const uploadedImages = ref([]);
 const imageFileInput = ref();
@@ -158,6 +164,11 @@ const createNewDiary = async () => {
   );
   if (response.success) {
     toast.success(`'${payload.title}' is successfully saved`);
+    await store.dispatch(
+      "diary/fetchDiaries",
+      wallet.value.publicKey.toBase58()
+    );
+    router.push({ name: "diary.diaries" });
   } else if (response.error) {
     console.error(response.error);
     if (response.error.message) {
