@@ -3,13 +3,13 @@
 [![MIT License][license-shield]][license-url]
 
 <br />
+![logo](https://github.com/user-attachments/assets/204f648b-f3f7-49c2-ab93-51cb537d14d4)
 <div align="center">
-  ![logo](https://github.com/user-attachments/assets/204f648b-f3f7-49c2-ab93-51cb537d14d4)
 
   <h3 align="center">Soldiary</h3>
 
   <p align="center">
-    If you haven't write your diary today, write it now on Soldiary and keep it secret and permanent
+    If you haven't written your diary today, write it now on Soldiary and keep it secret and permanent
     <br />
     <a href="/"><strong>View Live Site Demo</strong></a>
     ·
@@ -44,7 +44,8 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-Powered by Solana..We developed the Program with Anchor on [beta.solpg.io](https://beta.solpg.io/) and deployed it to the Solana Blockchain. Then we used @solana/web3.js for Connection and @project-serum/anchor to interact with the program. (later we will use zk-compression)
+Powered by Solana..We developed the Program with Anchor on [beta.solpg.io](https://beta.solpg.io/) and deployed it to the Solana Blockchain. Then we used [@solana/web3.js](https://solana-labs.github.io/solana-web3.js/) for Connection and [@project-serum/anchor](https://www.npmjs.com/package/@project-serum/anchor) to interact with the program. (later we will use [ZK Compression](https://www.zkcompression.com/))
+<br />
 ![diaries](https://github.com/user-attachments/assets/d9b26f68-ec0f-4682-8a13-14cab9131ae4)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
