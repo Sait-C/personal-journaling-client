@@ -44,6 +44,7 @@
 ## About The Project
 Powered by Solana..We developed the Program with Anchor on [beta.solpg.io](https://beta.solpg.io/) and deployed it to the Solana Blockchain. Then we used [@solana/web3.js](https://solana-labs.github.io/solana-web3.js/) for Connection and [@project-serum/anchor](https://www.npmjs.com/package/@project-serum/anchor) to interact with the program. (later we will use [ZK Compression](https://www.zkcompression.com/))
 <br />
+<br />
 ![diaries](https://github.com/user-attachments/assets/d9b26f68-ec0f-4682-8a13-14cab9131ae4)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
