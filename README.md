@@ -12,7 +12,7 @@
     <br />
     <a href="/"><strong>View Live Site Demo</strong></a>
     ·
-    <a href="/"><strong>View Video Demonstration</strong></a>
+    <a href="https://www.loom.com/share/f2f0fd05553249f6b8080c4b9acaa6e2?sid=29d27a34-da94-4c38-a00f-13a7a47424ad"><strong>View Video Demonstration</strong></a>
   </p>
 </div>
 
