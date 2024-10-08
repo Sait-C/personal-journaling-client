@@ -3,9 +3,8 @@
 [![MIT License][license-shield]][license-url]
 
 <br />
-![logo](https://github.com/user-attachments/assets/204f648b-f3f7-49c2-ab93-51cb537d14d4)
 <div align="center">
-
+  ![logo](https://github.com/user-attachments/assets/204f648b-f3f7-49c2-ab93-51cb537d14d4)
   <h3 align="center">Soldiary</h3>
 
   <p align="center">
@@ -33,7 +32,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -54,6 +52,7 @@ Powered by Solana..We developed the Program with Anchor on [beta.solpg.io](https
 
 - [![Vue][Vue.js]][Vue-url]
 - [![Anchor][Anchor]][Anchor]
+- Solana web3 packages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,10 +88,6 @@ This project was developed within the scope of Superteam Turkey Hacksolana and S
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -122,7 +117,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Soldiaryy - [@soldiaryy](https://twitter.com/soldiaryy) - soldiary@hotmail.com
+SOLDIARY - [@soldiaryy](https://twitter.com/soldiaryy) - soldiary@hotmail.com
 
 Project Link: [https://github.com/Sait-C/soldiary](https://github.com/Sait-C/soldiary)
 
